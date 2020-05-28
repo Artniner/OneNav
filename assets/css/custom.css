@@ -1,0 +1,247 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+body {
+	font-family:Consolas;
+
+/*     --main-color:#f96b1c; */
+/*     --sec-color:#9acc14; */
+	--main-color:#9acc14;
+	--sec-color:#f96b1c;
+
+	--1st-background:#1e2125;   /*main-content背景*/
+	--2nd-background:#191c1f;   /*左边栏背景*/
+	--3rd-background:#2e343a;   /*右边栏背景*/
+    --4th-background:#292e33;   /*item-cell背景*/
+    --5th-background:#343c41;   /*搜索栏背景*/
+    --6th-background:#3f464c;   /*右边栏按钮背景*/
+
+    --1st--fontcolor:#cbcbcb;   /*右边栏字体颜色*/
+    --2nd--fontcolor:#979898;  
+
+}
+/* 隐藏滚动条 */
+body::-webkit-scrollbar{
+	display:none;
+}
+
+/*-------------------side bar menu-------------------*/
+.sidebar-menu.collapsed{
+    width: 3px;  /*隐藏左边栏*/
+	transition:width .3s ease-in-out;}
+
+.sidebar-menu.fixed .sidebar-menu-inner{
+    left: -80px; /*隐藏左边栏*/
+	transition:left .5s ease-in-out;}
+
+.sidebar-menu.collapsed:hover{
+	width:80px;
+}
+.sidebar-menu.collapsed:hover > .sidebar-menu-inner{
+	left:0;
+}
+.sidebar-menu.collapsed:hover .logo-collapsed{
+	border:none;
+}
+
+/*-----------------side menu logo----------------*/
+/* logo 垂直居中 */
+.logo-env{
+	height:60px;
+	display:flex;
+	align-items:center;
+}
+.logo{
+	width:100%;
+}
+
+.logo-collapsed{
+	border-left: 3px solid var(--main-color);
+	border-right: 3px solid var(--main-color);
+}
+
+.logo-expanded{
+	transition:color .3s ease-in-out;
+}
+
+.logo-expanded:hover{
+	color:var(--main-color);
+}
+
+.logo-expanded h1{
+    margin-top:9px;
+    padding: 0 5px;
+}
+
+/*------------------side-bar button-----------------*/
+.sidebar-menu.collapsed .main-menu > li:hover,
+.sidebar-menu.collapsed .main-menu > li li:hover{
+	border-left:3px solid var(--sec-color);
+	border-right:3px solid var(--sec-color);
+}
+.sidebar-menu.collapsed .main-menu li:hover > a{
+	color:var(--sec-color);
+}
+
+/*-------------------main-content-------------------*/
+.main-content{
+	background:var(--1st-background);
+}
+
+/*---------------------search-----------------------*/
+.web-search{
+	margin-top: 90px;
+	text-align: center;
+}
+
+.search-logo{
+	margin: auto;
+	width: 150px;
+	height: 150px;
+	background: url(../images/logo.png) no-repeat center;
+	background-size: 130px 130px; /*留出边距*/
+	opacity:.9;
+	cursor: pointer;
+	transition: background .3s ease-in-out;
+}
+
+.search-logo:hover{
+    background: url(../images/logo_g.png) no-repeat center;
+    background-size:130px 130px;
+}
+
+.search-field{
+	max-width: 680px;
+	min-width: 320px;
+	margin: 0 auto;
+}
+
+.search-form{
+	width: 100%;
+	height: 50px;
+}
+
+.search-form input{
+	background: var(--3rd-background);
+	width:100%;
+	height:100%;
+	outline: none; /*隐藏点击时的边框*/
+	border: 1px solid var(--3rd-background);
+	border-radius: 4px;
+	text-indent: 20px;
+	font-size: 15px;
+	transition: border .3s ease-in-out;
+}
+.search-field input:focus{
+	border: 1px solid #b3f600;
+}
+
+.search-field ul{
+	margin-top:20px;
+	padding:0;
+	height:40px;
+}
+
+.search-field button{
+	margin:0 15px;
+	border:none;
+	outline: none;
+	background:var(--3rd-background);
+	width:120px;
+	height:100%;
+	color: var(--1st--fontcolor);
+	font-size:15px;
+	transition:box-shadow .3s ease-in-out;
+}
+.search-field button:hover{
+	color:var(--main-color);
+	box-shadow:0 3px 8px 0 rgba(0,0,0,.3);
+}
+
+/*-----------------------item-----------------------*/
+.xe-counter-block{
+	overflow:hidden;
+	border-left: 4px solid var(--main-color);
+	border-radius:2px;
+	transition:all .3s ease-in-out;
+}
+.xe-counter-block:hover{
+	border-left:4px solid var(--sec-color);
+	box-shadow:0 3px 8px 0 rgba(0,0,0,.7);
+}
+
+.xe-widget.xe-counter-block .xe-upper .xe-label .item-title{
+	white-space: nowrap; /*文字不换行*/
+	font-size: 22px;
+	transition:all .3s ease-in-out;
+}
+.item-title:hover{
+	color:var(--sec-color);
+}
+
+.xe-widget.xe-counter-block .xe-lower span{
+	white-space:nowrap;
+}
+
+
+/*-----------------------chat-----------------------*/
+#chat{
+	/* 	border-left:2px solid var(--main-color); */
+	width:3px;
+	transition:width .3s ease-in-out;
+	}
+
+#chat:hover{
+	width:350px;
+}
+
+/*--------------------search-bar--------------------*/
+#chat .search-field{
+	display: none;
+	width: 100%;
+	padding-left: 25px;
+	padding-right: 10px;
+	margin-top: 25px;
+	transition:all .3s ease-in-out;
+}
+#chat .search-form{
+	height:40px;
+}
+#chat .search-form input{
+	background:var(--6th-background);
+}
+
+/*--------------------右边栏按钮--------------------*/
+.chat-group{
+	padding-left: 25px;
+}
+#chat .chat-group > strong{
+	font-weight:bold;
+    font-size:15px;
+}
+
+.chat-group .col-xs-4{
+	padding-left:0;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+.chat-group .col-xs-4 > a{
+	display:block;  /*如果不是 block，width 无效*/
+	padding:5px;
+	width: 100%;
+	border-radius:3px;
+	border-left: 2px solid var(--main-color);
+	color:var(--1st--fontcolor);
+	background:var(--6th-background);
+	transition:all .3s ease-in-out;
+}
+.chat-group .col-xs-4 > a:hover{
+	border-left:3px solid var(--sec-color);
+	box-shadow:0 3px 8px 0 rgba(0,0,0,.7);
+}
+/*-------------------debug-------------------*/
