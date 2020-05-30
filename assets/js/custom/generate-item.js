@@ -53,7 +53,8 @@ function generateItem(webInfo){
 				$("#menu-group"+group_i+">ul").append(all);
 			}else{
 				$("#menu-group"+group_i).attr("data-class","."+info[2]);
-				$("#menu-group"+group_i).addClass("menu-group");
+				$("#menu-group"+group_i).addClass("menu-group"); //为点击事件做区分
+				continue;
 			}
 		}
 

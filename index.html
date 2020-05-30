@@ -80,29 +80,17 @@
 		</div>
 		
 		<div class="main-content">
-<!-- 			<nav class="navbar user-info-navbar" role="navigation">
-			    <div class="search-field">
-					<form class="search-form" action="http://www.baidu.com/baidu" target="_blank">
-						<input name="word" placeholder="请输入搜索内容" type="text" /> 
-						<input value="百度搜索" type="submit" hidden/>  
-					</form>
-		        </div>
-		        <div class="drop-down-handle">
-		            <i class="fa-chevron-down"></i>
-		        </div>
-			</nav> -->
 
 			<div class="web-search">
 			    <div class="search-logo"></div>
                 <div class="search-field">
-                    <form class="search-form" action="http://www.baidu.com/baidu" target="_blank">  
-						<input name="word" placeholder="请输入搜索内容" type="text" autocomplete="off"/> 
-						<input value="百度搜索" type="submit" hidden/>  
+                    <div class="search-select">
+                        <a id="baidu" class="active">百度搜索</a><a id="bing">必应搜索</a><a id="google">谷歌搜索</a> <!--换行写会导致布局 bug？-->
+                    </div>
+                    <form class="search-form" action="http://www.baidu.com/s" target="_blank">  
+						<input class="search-content" name="wd" placeholder="请输入搜索内容" type="text" autocomplete="off"/> 
+						<ul class="search-sug" hidden></ul> <!--联想结果-->
 					</form>
-					<ul>
-                        <button>百度搜索</button>
-                        <button>必应搜索</button>
-					</ul>
                 </div>
 			</div>
 
@@ -119,9 +107,8 @@
 			<div class="chat-inner">
 				
                 <div class="search-field">
-                    <form class="search-form" action="http://www.baidu.com/baidu" target="_blank">
-						<input name="word" placeholder="请输入搜索内容" type="text" autocomplete="off"> 
-						<input value="百度搜索" type="submit" hidden="">  
+                    <form class="search-form" action="http://www.baidu.com/s" target="_blank">
+						<input class="search-content" name="wd" placeholder="请输入搜索内容" type="text" autocomplete="off"> 
 					</form>
                 </div>
 			
@@ -158,6 +145,7 @@
 	<script src="assets/js/custom/db.js"></script>
 	<script src="assets/js/custom/generate-item.js"></script>
 	<script src="assets/js/custom/filter.js"></script>
+	<script src="assets/js/custom/search.js"></script>
 
 </body>
 </html>

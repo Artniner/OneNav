@@ -5,7 +5,7 @@ $(".menu-group").click(main_filter);
 function main_filter(){
 	// 显示 item
 	if ($(this).attr("class") == "active") return false;
-	$(".active").removeClass("active");
+	$(".main-menu .active").removeClass("active"); // 避免移除搜索的 active
 	$(this).addClass("active");
 	$(".item-cell").hide();
 	$($(this).data("class")).fadeIn();
@@ -17,17 +17,11 @@ function main_filter(){
 	$(".web-search").hide();
 
     // 隐藏 logo 边框
-	$(".logo-collapsed").css({border:"none"});
+	$(".logo-collapsed").css("border","none");
 
 	// 显示 search bar
 	$("#chat .search-field").fadeIn();
 }
-
-// 主 logo
-$(".search-logo").click(function(){
-	$(".web-search").hide();
-	$(".item-cell").fadeIn();
-});
 
 // 左侧导航栏 logo
 $(".logo-collapsed").click(function(){
@@ -37,7 +31,7 @@ $(".logo-collapsed").click(function(){
     $(".web-search").fadeIn();
 
     // 隐藏 item
-    $(".active").removeClass("active");
+    $(".main-menu .active").removeClass("active");
 
     // 显示边框
     $(this).css({
@@ -48,3 +42,10 @@ $(".logo-collapsed").click(function(){
     // 隐藏 search bar
     $("#chat .search-field").hide();
 });
+
+// 主 logo
+$(".search-logo").click(function(){
+	$(".web-search").hide();
+	$(".item-cell").fadeIn();
+});
+
