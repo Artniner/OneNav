@@ -6,39 +6,67 @@
 
 body {
 	font-family:Consolas;
-
-/*     --main-color:#f96b1c; */
+	/*     --main-color:#f96b1c; */
 /*     --sec-color:#9acc14; */
 	--main-color:#9acc14;
 	--sec-color:#f96b1c;
-
 	--1st-background:#1e2125;   /*main-content背景*/
 	--2nd-background:#191c1f;   /*左边栏背景*/
 	--3rd-background:#2e343a;   /*右边栏背景*/
-    --4th-background:#292e33;   /*item-cell背景*/
-    --5th-background:#343c41;   /*搜索栏背景*/
-    --6th-background:#3f464c;   /*右边栏按钮背景*/
-
-    --1st-fontcolor:#cbcbcb;   /*主 item 和右边栏字体颜色*/
-    --2nd-fontcolor:#979898;  
-
-    --baidu-color:#2932e1;
-    --bing-color:#00a89d;
-    --google-color:#ea4335;
+	--4th-background:#292e33;   /*item-cell背景*/
+	--5th-background:#343c41;   /*搜索栏背景*/
+	--6th-background:#3f464c;   /*右边栏按钮背景*/
+	--1st-fontcolor:#cbcbcb;   /*主 item 和右边栏字体颜色*/
+	--2nd-fontcolor:#979898;
+	--baidu-color:#2932e1;
+	--bing-color:#00a89d;
+	--google-color:#ea4335;
 }
 /* 隐藏滚动条 */
 body::-webkit-scrollbar{
 	display:none;
 }
 
+.page-container{
+	background:var(--1st-background);
+}
+
+/*-----------------side menu toggle----------------*/
+.sidebar-menu-toggle{
+	display:block;
+	opacity:.7;
+	width: 15px;
+	text-align: center;
+	position: absolute;
+	top:40%;
+	transition:opacity .3s ease-in-out;
+}
+
+/*left*/
+.sidebar-menu .sidebar-menu-toggle{
+	right: -15px;
+}
+
+/*right*/
+#chat .sidebar-menu-toggle{
+	left: -15px;
+}
+
+.sidebar-menu-toggle a{
+	color:var(--2nd-fontcolor);
+	font-size:15px;
+}
+
 /*-------------------side bar menu-------------------*/
 .sidebar-menu.collapsed{
     width: 3px;  /*隐藏左边栏*/
-	transition:width .3s ease-in-out;}
+    transition:width .3s ease-in-out;
+}
 
 .sidebar-menu.fixed .sidebar-menu-inner{
     left: -80px; /*隐藏左边栏*/
-	transition:left .5s ease-in-out;}
+    transition:left .5s ease-in-out;
+}
 
 .sidebar-menu.collapsed:hover{
 	width:80px;
@@ -49,13 +77,17 @@ body::-webkit-scrollbar{
 .sidebar-menu.collapsed:hover .logo-collapsed{
 	border:none;
 }
+.sidebar-menu.collapsed:hover .sidebar-menu-toggle{
+	opacity:0;
+}
 
 /*-----------------side menu logo----------------*/
 /* logo 垂直居中 */
-.logo-env{
+.page-container .sidebar-menu.collapsed .logo-env{
 	height:60px;
 	display:flex;
 	align-items:center;
+	padding: 18px 0;
 }
 .logo{
 	width:100%;
@@ -89,6 +121,10 @@ body::-webkit-scrollbar{
 	color:var(--sec-color);
 }
 
+.main-menu strong{
+	white-space:nowrap;  /*防止侧边栏收起边长*/
+}
+
 /*-------------------main-content-------------------*/
 .main-content{
 	background:var(--1st-background);
@@ -102,7 +138,7 @@ body::-webkit-scrollbar{
 
 /*logo*/
 .search-logo{
-	margin: 20px auto;
+	margin: 25px auto;
 	width: 130px;
 	height: 130px;
 	background: url(../images/logo.png) no-repeat center;
@@ -119,7 +155,7 @@ body::-webkit-scrollbar{
 /*主搜索*/
 .search-field{
 	max-width: 680px;
-	min-width: 320px;
+	min-width: 210px;
 	margin: 0 auto;
 }
 
@@ -177,9 +213,9 @@ body::-webkit-scrollbar{
 
 /*联想结果*/
 .search-sug{
-	padding:0;
+	padding: 0;
 	background:var(--5th-background);
-    border-bottom:1.2px solid var(--baidu-color);
+	border-bottom:1.2px solid var(--baidu-color);
 	border-radius:4px;
 	list-style-type: none;
 	text-align:left;
@@ -187,9 +223,10 @@ body::-webkit-scrollbar{
 	font-size:15px;
 }
 .search-sug li{
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left:22px;
+	overflow: hidden;
+	padding: 5px 22px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	cursor: default;
 }
 .search-sug li:hover{
@@ -210,6 +247,8 @@ body::-webkit-scrollbar{
 }
 
 .xe-widget.xe-counter-block .xe-upper .xe-label .item-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
 	white-space: nowrap; /*文字不换行*/
 	font-size: 22px;
 	transition:all .3s ease-in-out;
@@ -221,18 +260,23 @@ body::-webkit-scrollbar{
 
 .xe-widget.xe-counter-block .xe-lower span{
 	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 
 /*-----------------------chat-----------------------*/
-#chat{
+.page-container #chat{
 	/* 	border-left:2px solid var(--main-color); */
 	width:3px;
 	transition:width .3s ease-in-out;
-	}
+}
 
 #chat:hover{
 	width:350px;
+}
+#chat:hover .sidebar-menu-toggle{
+	opacity:0;
 }
 
 /*--------------------search-bar--------------------*/
@@ -275,10 +319,14 @@ body::-webkit-scrollbar{
 	border-left: 2px solid var(--main-color);
 	color:var(--1st-fontcolor);
 	background:var(--6th-background);
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
 	transition:all .3s ease-in-out;
 }
 .chat-group .col-xs-4 > a:hover{
 	border-left:3px solid var(--sec-color);
 	box-shadow:0 3px 8px 0 rgba(0,0,0,.7);
 }
+
 /*-------------------debug-------------------*/

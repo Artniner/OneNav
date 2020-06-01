@@ -40,34 +40,21 @@
 		<!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
 		<!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
 		<div class="sidebar-menu toggle-others fixed collapsed">
-			
-			<div class="sidebar-menu-inner">	
-				
-				<header class="logo-env">
+			<!-- 侧边栏箭头 -->
+			<div class="sidebar-menu-toggle">						
+				<a href="#" data-toggle="mobile-menu">
+					<i class="fa-chevron-right"></i>
+				</a>
+			</div>		
 					
+			<div class="sidebar-menu-inner">				
+				<header class="logo-env">									
 					<!-- logo -->
 					<div class="logo">
-						<a class="logo-expanded">
-							<h1>ANNav</h1>
-						</a>
-						
 						<a href="#" class="logo-collapsed">
 							<img src="assets/images/logo.png" width="40" alt="" />
 						</a>
-					</div>
-					
-					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
-					<div class="mobile-menu-toggle visible-xs">
-						<a href="#" data-toggle="user-info-menu">
-							<i class="fa-bell-o"></i>
-							<span class="badge badge-success">7</span>
-						</a>
-						
-						<a href="#" data-toggle="mobile-menu">
-							<i class="fa-bars"></i>
-						</a>
-					</div>					
-								
+					</div>												
 				</header>
 						
 				<ul id="main-menu" class="main-menu">
@@ -103,15 +90,19 @@
 			
 		<!-- start: Chat Section -->
 		<div id="chat" class="fixed">
-			
+            <!-- 侧边栏箭头 -->
+			<div class="sidebar-menu-toggle">						
+		        <a href="#" data-toggle="mobile-menu">
+					<i class="fa-chevron-left"></i>
+				</a>
+			</div>				
+
 			<div class="chat-inner">
-				
                 <div class="search-field">
                     <form class="search-form" action="http://www.baidu.com/s" target="_blank">
 						<input class="search-content" name="wd" placeholder="请输入搜索内容" type="text" autocomplete="off"> 
 					</form>
                 </div>
-			
 			</div>
 			
 		</div>

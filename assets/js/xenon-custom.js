@@ -90,7 +90,7 @@ var public_vars = public_vars || {};
 			var $chat_inner = public_vars.$pageContainer.find('#chat .chat-inner');
 			
 			if($chat_inner.parent().hasClass('fixed'))
-				$chat_inner.css({maxHeight: $(window).height()}).perfectScrollbar();
+				$chat_inner.css({maxHeight: $(window).height()}).perfectScrollbar(); //显示自定义滚动条，但最大高度有问题
 				
 				
 			// User info opening dropdown trigger PS update

@@ -885,7 +885,7 @@ body {
   font-size: 13px;
   line-height: 1.42857143;
   color: #fff;
-  background-color: #ffffff;
+  background-color: var(--1st-background);
 }
 input,
 button,
