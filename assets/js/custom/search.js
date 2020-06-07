@@ -8,7 +8,10 @@ $(".search-select a").click(function(){
     switch($(this).attr("id")){
         case "baidu":
             // 搜索框颜色
-            $(".search-content").css("border","1.2px solid var(--baidu-color)");
+            $(".search-content").css({
+            	"border-top":"1.2px solid var(--baidu-color)",
+                "border-bottom":"1.2px solid var(--baidu-color)"
+            	});
             // 联想框
             $(".search-sug").css("border-bottom","1.2px solid var(--baidu-color)");
             // API 参数
@@ -16,13 +19,19 @@ $(".search-select a").click(function(){
             $(".search-content").attr("name","wd");
             break;
         case "bing":
-            $(".search-content").css("border","1.2px solid var(--bing-color)");
+            $(".search-content").css({
+            	"border-top":"1.2px solid var(--bing-color)",
+                "border-bottom":"1.2px solid var(--bing-color)"
+            	});
             $(".search-sug").css("border-bottom","1.2px solid var(--bing-color)");
             $(".search-form").attr("action","https://www.bing.com/search");
             $(".search-content").attr("name","q");
             break;
         case "google":
-            $(".search-content").css("border","1.2px solid var(--google-color)");
+            $(".search-content").css({
+            	"border-top":"1.2px solid var(--google-color)",
+                "border-bottom":"1.2px solid var(--google-color)"
+            	});
             $(".search-sug").css("border-bottom","1.2px solid var(--google-color)");
             $(".search-form").attr("action","https://www.google.com/search");
             $(".search-content").attr("name","q");
