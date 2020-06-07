@@ -47,5 +47,6 @@ $(".logo-collapsed").click(function(){
 $(".search-logo").click(function(){
 	$(".web-search").hide();
 	$(".item-cell").fadeIn();
+	$("#chat .search-field").show();
 });
 

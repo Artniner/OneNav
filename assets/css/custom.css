@@ -205,7 +205,7 @@ body::-webkit-scrollbar{
 	font-size: 15px;
 	transition: border .3s ease-in-out;
 }
-.search-content:focus{
+.web-search .search-content:focus{ /*隐藏底部边框*/
 	border-bottom: none !important;
 }
 .search-content:focus ~ ul{  /*显示联想结果*/
